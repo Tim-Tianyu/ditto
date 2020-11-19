@@ -73,7 +73,7 @@ class DittoDataset(SnippextDataset):
             list of str: the labels
         """
         sents, labels = [], []
-        for line in open(path):
+        for line in open(path, encoding='utf-8'):
             items = line.strip().split('\t')
             # only consider sentence and sentence pairs
             if len(items) < 2 or len(items) > 3:

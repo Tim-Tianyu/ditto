@@ -40,7 +40,7 @@ class Summarizer:
                self.config['testset']]
         content = []
         for fn in fns:
-            with open(fn) as fin:
+            with open(fn, encoding='utf-8') as fin:
                 for line in fin:
                     LL = line.split('\t')
                     if len(LL) > 2:
@@ -129,7 +129,7 @@ class Summarizer:
         out_fn = input_fn + '.su'
         if not os.path.exists(out_fn) or \
            os.stat(out_fn).st_size == 0 or overwrite:
-            with open(out_fn, 'w') as fout:
-                for line in open(input_fn):
+            with open(out_fn, 'w', encoding='utf-8') as fout:
+                for line in open(input_fn, encoding='utf-8'):
                     fout.write(self.transform(line, max_len=max_len))
         return out_fn
