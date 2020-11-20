@@ -1,0 +1,1790 @@
+Selected optimization level O2:  FP16 training with FP32 batchnorm and FP32 master weights.
+
+Defaults for this optimization level are:
+enabled                : True
+opt_level              : O2
+cast_model_type        : torch.float16
+patch_torch_functions  : False
+keep_batchnorm_fp32    : True
+master_weights         : True
+loss_scale             : dynamic
+Processing user overrides (additional kwargs that are not None)...
+After processing overrides, optimization options are:
+enabled                : True
+opt_level              : O2
+cast_model_type        : torch.float16
+patch_torch_functions  : False
+keep_batchnorm_fp32    : True
+master_weights         : True
+loss_scale             : dynamic
+Warning:  multi_tensor_applier fused unscale kernel is unavailable, possibly because apex was installed without --cuda_ext --cpp_ext. Using Python fallback.  Original ImportError was: ModuleNotFoundError("No module named 'amp_C'")
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+=====sanity check======
+words: COL Beer_Name VAL North 45 Amber Ale COL Brew_Factory_Name VAL Petoskey Brewing Company COL Style VAL American / Red COL ABV VAL NUM 5.80 % [SEP] COL Beer_Name VAL Thirsty Pagan North Coast Amber Ale COL Brew_Factory_Name PRODUCT VAL Brewing COL Style VAL COL ABV VAL -
+x: [  101  8902  5404  1035  2171 11748  2167  3429  8994 15669  8902 24702
+  1035  4713  1035  2171 11748  9004  2891 14839 16005  2194  8902  2806
+ 11748  2137  1013  2417  8902 11113  2615 11748 16371  2213   102  8902
+  5404  1035  2171 11748 24907 14318  2167  3023  8994 15669  8902 24702
+  1035  4713  1035  2171  4031 11748 16005  8902  2806 11748  8902 11113
+  2615 11748  1011   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'north', '45', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'pet', '##os', '##key', 'brewing', 'company', 'col', 'style', 'val', 'american', '/', 'red', 'col', 'ab', '##v', 'val', 'nu', '##m', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'thirsty', 'pagan', 'north', 'coast', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'product', 'val', 'brewing', 'col', 'style', 'val', 'col', 'ab', '##v', 'val', '-', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.8020920753479004
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 16384.0
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Red 's On Vacation COL Brew_Factory_Name PRODUCT VAL Barley John Brew Pub COL Style VAL American Amber / Ale COL ABV VAL NUM 5.44 % [SEP] COL Beer_Name VAL Barley Johns Reds on Vacation COL Brew_Factory_Name VAL Brew Pub COL Style VAL Amber Ale COL ABV VAL NUM 5.44 %
+x: [  101  8902  5404  1035  2171 11748  2417  1005  1055  2006 10885  8902
+ 24702  1035  4713  1035  2171  4031 11748 21569  2198 24702  9047  8902
+  2806 11748  2137  8994  1013 15669  8902 11113   102  8902  5404  1035
+  2171 11748 21569 11545 12281  2006 10885  8902 24702  1035  4713  1035
+  2171 11748 24702  9047  8902  2806 11748  8994 15669  8902 11113  2615
+ 11748 16371  2213   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'red', "'", 's', 'on', 'vacation', 'col', 'brew', '_', 'factory', '_', 'name', 'product', 'val', 'barley', 'john', 'brew', 'pub', 'col', 'style', 'val', 'american', 'amber', '/', 'ale', 'col', 'ab', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'barley', 'johns', 'reds', 'on', 'vacation', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brew', 'pub', 'col', 'style', 'val', 'amber', 'ale', 'col', 'ab', '##v', 'val', 'nu', '##m', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 1
+tags: 1
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.6452181935310364
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL My Hoppy Valentine COL Brew_Factory_Name VAL Excel Brewing Company COL Style VAL American Amber / Red Ale COL ABV VAL NUM 6.50 % [SEP] COL Beer_Name VAL Excel My Hoppy Valentine COL Brew_Factory_Name VAL Brewing Company COL Style VAL Amber Ale COL ABV VAL NUM 6.50 %
+x: [  101  8902  5404  1035  2171 11748  2026  6154  7685 10113  8902 24702
+  1035  4713  1035  2171 11748 24970 16005  2194  8902  2806 11748  2137
+  8994  1013  2417 15669  8902 11113  2615 11748   102  8902  5404  1035
+  2171 11748 24970  2026  6154  7685 10113  8902 24702  1035  4713  1035
+  2171 11748 16005  2194  8902  2806 11748  8994 15669  8902 11113  2615
+ 11748 16371  2213   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'my', 'hop', '##py', 'valentine', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'excel', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'red', 'ale', 'col', 'ab', '##v', 'val', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'excel', 'my', 'hop', '##py', 'valentine', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'amber', 'ale', 'col', 'ab', '##v', 'val', 'nu', '##m', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 1
+tags: 1
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.49042755365371704
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Kniksen India Red Ale COL Brew_Factory_Name VAL 7 Fjell Bryggeri COL Style VAL American Amber / COL ABV VAL NUM 6.80 % [SEP] COL Beer_Name VAL Boneyard Skunkape PRODUCT India Red Ale COL Brew_Factory_Name VAL Beer Company COL Style VAL Pale & # NUM 40 ; IPA & # NUM 41 ; COL ABV VAL NUM 6.50 %
+x: [  101  8902  5404  1035  2171 11748 14161  5480  5054  2634  2417 15669
+  8902 24702  1035  4713  1035  2171 11748  1021  1042  6460  3363  7987
+  2100 13327  2072  8902  2806 11748  2137  8994   102  8902  5404  1035
+  2171 11748  5923 14132 15315 16814 24065  4031  2634  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748  5404  2194  8902  2806 11748  5122
+  1004  1001 16371   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'kn', '##ik', '##sen', 'india', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', '7', 'f', '##je', '##ll', 'br', '##y', '##gger', '##i', 'col', 'style', 'val', 'american', 'amber', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'bone', '##yard', 'sk', '##unk', '##ape', 'product', 'india', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'beer', 'company', 'col', 'style', 'val', 'pale', '&', '#', 'nu', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.37946009635925293
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Double Dread Imperial Red Ale COL Brew_Factory_Name VAL Mad River Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 8.60 % [SEP] COL Beer_Name VAL Ballast Point Tongue Buckler Imperial Red Ale - Bourbon Barrel Aged COL Brew_Factory_Name VAL Brewing Company COL Style VAL American Strong PRODUCT COL ABV VAL NUM 10 %
+x: [  101  8902  5404  1035  2171 11748  3313 14436  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748  5506  2314 16005  2194  8902  2806
+ 11748  2137  8994  1013  8902 11113  2615 11748   102  8902  5404  1035
+  2171 11748 28030  2391  4416 22853  2099  4461  2417 15669  1011 15477
+  8460  4793  8902 24702  1035  4713  1035  2171 11748 16005  2194  8902
+  2806 11748  2137   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'double', 'dread', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'mad', 'river', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'ballast', 'point', 'tongue', 'buckle', '##r', 'imperial', 'red', 'ale', '-', 'bourbon', 'barrel', 'aged', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.33134323358535767
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Double Dread Imperial Red Ale COL Brew_Factory_Name VAL Mad River Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 8.60 % [SEP] COL Beer_Name VAL Ballast Point Tongue Buckler Imperial Red Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL American PRODUCT Strong COL ABV VAL NUM 10 %
+x: [  101  8902  5404  1035  2171 11748  3313 14436  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748  5506  2314 16005  2194  8902  2806
+ 11748  2137  8994  1013  8902 11113  2615 11748   102  8902  5404  1035
+  2171 11748 28030  2391  4416 22853  2099  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748  2137  4031
+  2844  8902 11113   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'double', 'dread', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'mad', 'river', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'ballast', 'point', 'tongue', 'buckle', '##r', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', 'product', 'strong', 'col', 'ab', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.5100293159484863
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Red Headed Slut Amber Ale COL Brew_Factory_Name VAL Twisted K-8 Brewing Company COL Style VAL American / COL ABV VAL NUM 6.50 % [SEP] COL Beer_Name VAL Baird Red Rose Amber Ale COL Brew_Factory_Name VAL Brewing Co. . COL Style VAL California Common COL ABV VAL NUM 5.40 %
+x: [  101  8902  5404  1035  2171 11748  2417  3753 22889  4904  8994 15669
+  8902 24702  1035  4713  1035  2171 11748  6389  1047  1011  1022 16005
+  2194  8902  2806 11748  2137  1013  8902 11113   102  8902  5404  1035
+  2171 11748 20866  2417  3123  8994 15669  8902 24702  1035  4713  1035
+  2171 11748 16005  2522  1012  1012  8902  2806 11748  2662  2691  8902
+ 11113  2615 11748   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'red', 'headed', 'sl', '##ut', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'twisted', 'k', '-', '8', 'brewing', 'company', 'col', 'style', 'val', 'american', '/', 'col', 'ab', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'baird', 'red', 'rose', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'co', '.', '.', 'col', 'style', 'val', 'california', 'common', 'col', 'ab', '##v', 'val', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.34393537044525146
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Arsenal Imperial Red Ale COL Brew_Factory_Name VAL Great River Brewery COL Style VAL American Amber / COL ABV VAL NUM 9 % [SEP] COL Beer_Name VAL Wynwood Fox Imperial Red Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL American Strong PRODUCT COL ABV VAL NUM 7.70 %
+x: [  101  8902  5404  1035  2171 11748  9433  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748  2307  2314 12161  8902  2806 11748  2137
+  8994  1013  8902 11113  2615 11748 16371  2213   102  8902  5404  1035
+  2171 11748  1059  6038  3702  4419  4461  2417 15669  8902 24702  1035
+  4713  1035  2171 11748 16005  2194  8902  2806 11748  2137  2844  4031
+  8902 11113  2615   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'arsenal', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'great', 'river', 'brewery', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', 'nu', '##m', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'w', '##yn', '##wood', 'fox', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', 'strong', 'product', 'col', 'ab', '##v', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.29392102360725403
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Double Mongrel Imperial India Red Ale COL Brew_Factory_Name VAL Aspetuck Brew Lab COL Style VAL American Amber / COL ABV VAL NUM 9 % [SEP] COL Beer_Name VAL Boxing Cat Firecracker Imperial Red Ale COL Brew_Factory_Name VAL Brewery COL Style VAL Amber COL ABV VAL NUM 6.60 %
+x: [  101  8902  5404  1035  2171 11748  3313 12256 17603  2140  4461  2634
+  2417 15669  8902 24702  1035  4713  1035  2171 11748  2004 22327 12722
+ 24702  6845  8902  2806 11748  2137  8994  1013   102  8902  5404  1035
+  2171 11748  8362  4937  2543 26775 25418  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748 12161  8902  2806 11748  8994  8902 11113
+  2615 11748 16371   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'double', 'mon', '##gre', '##l', 'imperial', 'india', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'as', '##pet', '##uck', 'brew', 'lab', 'col', 'style', 'val', 'american', 'amber', '/', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'boxing', 'cat', 'fire', '##cr', '##acker', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewery', 'col', 'style', 'val', 'amber', 'col', 'ab', '##v', 'val', 'nu', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.4076715409755707
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Kniksen India Red Ale COL Brew_Factory_Name VAL 7 Fjell Bryggeri COL Style VAL American Amber / COL ABV VAL NUM 6.80 % [SEP] COL Beer_Name VAL Boneyard Skunkape PRODUCT India Red Ale COL Brew_Factory_Name VAL Beer Company COL Style VAL Pale & # NUM 40 ; IPA & # NUM 41 ; COL ABV VAL NUM 6.50 %
+x: [  101  8902  5404  1035  2171 11748 14161  5480  5054  2634  2417 15669
+  8902 24702  1035  4713  1035  2171 11748  1021  1042  6460  3363  7987
+  2100 13327  2072  8902  2806 11748  2137  8994   102  8902  5404  1035
+  2171 11748  5923 14132 15315 16814 24065  4031  2634  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748  5404  2194  8902  2806 11748  5122
+  1004  1001 16371   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'kn', '##ik', '##sen', 'india', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', '7', 'f', '##je', '##ll', 'br', '##y', '##gger', '##i', 'col', 'style', 'val', 'american', 'amber', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'bone', '##yard', 'sk', '##unk', '##ape', 'product', 'india', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'beer', 'company', 'col', 'style', 'val', 'pale', '&', '#', 'nu', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.4958009123802185
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Tst Brw 1 - Imperial Red Ale COL Brew_Factory_Name VAL Brouwerij De Koninck NV COL Style VAL American Amber / COL ABV VAL NUM 7.80 % [SEP] COL Beer_Name VAL Kern River Dirty Hippie Imperial Red Ale COL Brew_Factory_Name PRODUCT VAL Brewing COL Style VAL American Strong COL ABV VAL NUM 8 %
+x: [  101  8902  5404  1035  2171 11748 24529  2102  7987  2860  1015  1011
+  4461  2417 15669  8902 24702  1035  4713  1035  2171 11748 22953 25974
+ 11124  3501  2139 12849 11483  3600  1050  2615   102  8902  5404  1035
+  2171 11748 22762  2314  6530  5099 14756  4461  2417 15669  8902 24702
+  1035  4713  1035  2171  4031 11748 16005  8902  2806 11748  2137  2844
+  8902 11113  2615   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'ts', '##t', 'br', '##w', '1', '-', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'bro', '##uw', '##eri', '##j', 'de', 'ko', '##nin', '##ck', 'n', '##v', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'kern', 'river', 'dirty', 'hip', '##pie', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'product', 'val', 'brewing', 'col', 'style', 'val', 'american', 'strong', 'col', 'ab', '##v', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.17373791337013245
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Shark Attack Double Red Ale COL Brew_Factory_Name VAL Port Brewing COL Style VAL American Amber / COL ABV VAL NUM 9 % [SEP] COL Beer_Name VAL Midnight Sun Unite Double Red Hot Ale & # NUM 40 ; 2015 & # NUM 41 ; COL Brew_Factory_Name VAL Brewing Company COL Style VAL Amber COL ABV VAL NUM 7.50 %
+x: [  101  8902  5404  1035  2171 11748 11420  2886  3313  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748  3417 16005  8902  2806 11748  2137
+  8994  1013  8902 11113  2615 11748 16371  2213   102  8902  5404  1035
+  2171 11748  7090  3103 15908  3313  2417  2980 15669  1004  1001 16371
+  2213  2871  1025  2325  1004  1001 16371  2213  4601  1025  8902 24702
+  1035  4713  1035   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'shark', 'attack', 'double', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'port', 'brewing', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', 'nu', '##m', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'midnight', 'sun', 'unite', 'double', 'red', 'hot', 'ale', '&', '#', 'nu', '##m', '40', ';', '2015', '&', '#', 'nu', '##m', '41', ';', 'col', 'brew', '_', 'factory', '_', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.2127278447151184
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.846
+precision=0.000
+recall=0.000
+f1=0.000
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Lavery Imperial Red Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 8.20 % [SEP] COL Beer_Name VAL Oak Creek King Crimson Imperial Red Ale COL Brew_Factory_Name VAL Brewing Co. . COL Style VAL American Strong COL ABV VAL NUM 9.50 %
+x: [  101  8902  5404  1035  2171 11748  2474 27900  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748  2137
+  8994  1013  8902 11113  2615 11748 16371  2213   102  8902  5404  1035
+  2171 11748  6116  3636  2332 11466  4461  2417 15669  8902 24702  1035
+  4713  1035  2171 11748 16005  2522  1012  1012  8902  2806 11748  2137
+  2844  8902 11113   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'la', '##very', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', 'nu', '##m', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'oak', 'creek', 'king', 'crimson', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'co', '.', '.', 'col', 'style', 'val', 'american', 'strong', 'col', 'ab', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.16697920858860016
+=========eval at epoch=1=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.868
+precision=0.750
+recall=0.214
+f1=0.333
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.890
+precision=0.750
+recall=0.429
+f1=0.545
+======================================
+=====sanity check======
+words: COL Beer_Name VAL C N Red Imperial Ale COL Brew_Factory_Name VAL Redwood Lodge COL PRODUCT Style VAL American Amber / COL ABV VAL NUM 8.10 % [SEP] COL Beer_Name VAL Kinetic Infrared Imperial Red Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL American PRODUCT Strong COL ABV VAL NUM 9.30 %
+x: [  101  8902  5404  1035  2171 11748  1039  1050  2417  4461 15669  8902
+ 24702  1035  4713  1035  2171 11748 27552  7410  8902  4031  2806 11748
+  2137  8994  1013  8902 11113  2615 11748 16371   102  8902  5404  1035
+  2171 11748 20504 14611  4461  2417 15669  8902 24702  1035  4713  1035
+  2171 11748 16005  2194  8902  2806 11748  2137  4031  2844  8902 11113
+  2615 11748 16371   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'c', 'n', 'red', 'imperial', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'redwood', 'lodge', 'col', 'product', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', 'nu', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'kinetic', 'infrared', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', 'product', 'strong', 'col', 'ab', '##v', 'val', 'nu', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.12909410893917084
+=========eval at epoch=2=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.923
+precision=0.684
+recall=0.929
+f1=0.788
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.923
+precision=0.684
+recall=0.929
+f1=0.788
+======================================
+=====sanity check======
+words: COL Beer_Name VAL American Red Ale COL Brew_Factory_Name VAL Rock Art Brewery COL Style VAL Amber / COL ABV VAL NUM 4.80 % [SEP] COL Beer_Name VAL PRODUCT Americas American Red Ale COL Brew_Factory_Name VAL Brewpub COL Style VAL Amber COL ABV VAL -
+x: [  101  8902  5404  1035  2171 11748  2137  2417 15669  8902 24702  1035
+  4713  1035  2171 11748  2600  2396 12161  8902  2806 11748  8994  1013
+  8902 11113  2615 11748 16371  2213  1018  1012  3770   102  8902  5404
+  1035  2171 11748  4031 10925  2137  2417 15669  8902 24702  1035  4713
+  1035  2171 11748 24702 14289  2497  8902  2806 11748  8994  8902 11113
+  2615 11748  1011   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'american', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'rock', 'art', 'brewery', 'col', 'style', 'val', 'amber', '/', 'col', 'ab', '##v', 'val', 'nu', '##m', '4', '.', '80', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'product', 'americas', 'american', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brew', '##pu', '##b', 'col', 'style', 'val', 'amber', 'col', 'ab', '##v', 'val', '-', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 1
+tags: 1
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.10949446260929108
+=========eval at epoch=3=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.879
+precision=0.636
+recall=0.500
+f1=0.560
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.945
+precision=0.800
+recall=0.857
+f1=0.828
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Sons Of Anarchy Amber Ale COL Brew_Factory_Name VAL Sudwerk Brewing Company COL Style VAL American / Red COL ABV VAL NUM 4.70 % [SEP] COL Beer_Name VAL Sudwerk Sons Of Anarchy Amber Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL COL ABV VAL NUM 4.70 %
+x: [  101  8902  5404  1035  2171 11748  4124  1997 26395  8994 15669  8902
+ 24702  1035  4713  1035  2171 11748 19219 29548 16005  2194  8902  2806
+ 11748  2137  1013  2417  8902 11113  2615 11748   102  8902  5404  1035
+  2171 11748 19219 29548  4124  1997 26395  8994 15669  8902 24702  1035
+  4713  1035  2171 11748 16005  2194  8902  2806 11748  8902 11113  2615
+ 11748 16371  2213   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'sons', 'of', 'anarchy', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'sud', '##werk', 'brewing', 'company', 'col', 'style', 'val', 'american', '/', 'red', 'col', 'ab', '##v', 'val', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'sud', '##werk', 'sons', 'of', 'anarchy', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'col', 'ab', '##v', 'val', 'nu', '##m', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 1
+tags: 1
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.06320972740650177
+=========eval at epoch=4=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.912
+precision=0.714
+recall=0.714
+f1=0.714
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.945
+precision=0.765
+recall=0.929
+f1=0.839
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Lagunitas Imperial Red Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 7.80 % [SEP] COL Beer_Name VAL Pizza Port Rhino Chaser Imperial Red Ale COL Brew_Factory_Name VAL & # NUM 40 ; Ocean Beach & # NUM 41 ; COL Style VAL American Strong COL ABV VAL NUM 9.50 %
+x: [  101  8902  5404  1035  2171 11748  2474 12734 24317  4461  2417 15669
+  8902 24702  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748
+  2137  8994  1013  8902 11113  2615 11748 16371   102  8902  5404  1035
+  2171 11748 10733  3417 24091  5252  2099  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748  1004  1001 16371  2213  2871  1025  4153
+  3509  1004  1001   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'la', '##gun', '##itas', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', 'nu', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'pizza', 'port', 'rhino', 'chase', '##r', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', '&', '#', 'nu', '##m', '40', ';', 'ocean', 'beach', '&', '#', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.021025298163294792
+=========eval at epoch=5=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.890
+precision=0.591
+recall=0.929
+f1=0.722
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.923
+precision=0.667
+recall=1.000
+f1=0.800
+======================================
+=====sanity check======
+words: COL Beer_Name VAL The ` ` Ginger '' A Red Ale COL Brew_Factory_Name VAL Elk Street Brewery & Tap Room COL Style VAL American Amber / COL ABV VAL NUM 6.80 % [SEP] COL Beer_Name VAL The Beer Company Wyatt Earp Red Ale COL Brew_Factory_Name VAL COL Style VAL Irish COL ABV VAL NUM 7 %
+x: [  101  8902  5404  1035  2171 11748  1996  1036  1036 14580  1005  1005
+  1037  2417 15669  8902 24702  1035  4713  1035  2171 11748 18995  2395
+ 12161  1004 11112  2282  8902  2806 11748  2137   102  8902  5404  1035
+  2171 11748  1996  5404  2194 12986  4540  2361  2417 15669  8902 24702
+  1035  4713  1035  2171 11748  8902  2806 11748  3493  8902 11113  2615
+ 11748 16371  2213   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'the', '`', '`', 'ginger', "'", "'", 'a', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'elk', 'street', 'brewery', '&', 'tap', 'room', 'col', 'style', 'val', 'american', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'the', 'beer', 'company', 'wyatt', 'ear', '##p', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'col', 'style', 'val', 'irish', 'col', 'ab', '##v', 'val', 'nu', '##m', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.04916585609316826
+=========eval at epoch=6=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.923
+precision=0.733
+recall=0.786
+f1=0.759
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.722
+recall=0.929
+f1=0.813
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Aiken PRODUCT American PRODUCT Red Pale Ale COL Brew_Factory_Name VAL Brewing Company COL Style PRODUCT VAL Amber / COL ABV VAL - [SEP] COL Beer_Name VAL Blue Heron Corey_s American Pale Ale & # NUM 40 ; C.A.P.A. & # NUM 41 ; COL Brew_Factory_Name VAL Brewpub COL Style VAL COL ABV VAL NUM 6.20 %
+x: [  101  8902  5404  1035  2171 11748  9932  7520  4031  2137  4031  2417
+  5122 15669  8902 24702  1035  4713  1035  2171 11748 16005  2194  8902
+  2806  4031 11748  8994  1013  8902 11113  2615   102  8902  5404  1035
+  2171 11748  2630 22914 18132  1035  1055  2137  5122 15669  1004  1001
+ 16371  2213  2871  1025  1039  1012  1037  1012  1052  1012  1037  1012
+  1004  1001 16371   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'ai', '##ken', 'product', 'american', 'product', 'red', 'pale', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'product', 'val', 'amber', '/', 'col', 'ab', '##v', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'blue', 'heron', 'corey', '_', 's', 'american', 'pale', 'ale', '&', '#', 'nu', '##m', '40', ';', 'c', '.', 'a', '.', 'p', '.', 'a', '.', '&', '#', 'nu', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.00626678392291069
+=========eval at epoch=7=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.923
+precision=0.818
+recall=0.643
+f1=0.720
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.923
+precision=0.769
+recall=0.714
+f1=0.741
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Double Mongrel Imperial India Red Ale COL Brew_Factory_Name VAL Aspetuck Brew Lab COL Style VAL American Amber / COL ABV VAL NUM 9 % [SEP] COL Beer_Name VAL Boxing Cat Firecracker Imperial Red Ale COL Brew_Factory_Name VAL Brewery COL Style VAL Amber COL ABV VAL NUM 6.60 %
+x: [  101  8902  5404  1035  2171 11748  3313 12256 17603  2140  4461  2634
+  2417 15669  8902 24702  1035  4713  1035  2171 11748  2004 22327 12722
+ 24702  6845  8902  2806 11748  2137  8994  1013   102  8902  5404  1035
+  2171 11748  8362  4937  2543 26775 25418  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748 12161  8902  2806 11748  8994  8902 11113
+  2615 11748 16371   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'double', 'mon', '##gre', '##l', 'imperial', 'india', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'as', '##pet', '##uck', 'brew', 'lab', 'col', 'style', 'val', 'american', 'amber', '/', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'boxing', 'cat', 'fire', '##cr', '##acker', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewery', 'col', 'style', 'val', 'amber', 'col', 'ab', '##v', 'val', 'nu', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.01658102683722973
+=========eval at epoch=8=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.923
+precision=0.733
+recall=0.786
+f1=0.759
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.722
+recall=0.929
+f1=0.813
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Bourbon Barrel Ro Shampo Imperial Red Ale COL Brew_Factory_Name VAL Figure 8 Brewing PRODUCT COL Style VAL American Amber / COL ABV VAL - [SEP] COL Beer_Name VAL Sick N Twisted Naughty Redhead Imperial Red Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL Amber COL ABV VAL NUM 8 %
+x: [  101  8902  5404  1035  2171 11748 15477  8460 20996 25850  6873  4461
+  2417 15669  8902 24702  1035  4713  1035  2171 11748  3275  1022 16005
+  4031  8902  2806 11748  2137  8994  1013  8902   102  8902  5404  1035
+  2171 11748  5305  1050  6389 20355 26705  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748  8994  8902
+ 11113  2615 11748   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'bourbon', 'barrel', 'ro', 'sham', '##po', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'figure', '8', 'brewing', 'product', 'col', 'style', 'val', 'american', 'amber', '/', 'col', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'sick', 'n', 'twisted', 'naughty', 'redhead', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'amber', 'col', 'ab', '##v', 'val', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.019731491804122925
+=========eval at epoch=9=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.786
+recall=0.786
+f1=0.786
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.967
+precision=0.824
+recall=1.000
+f1=0.903
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Red - oric - Beer Camp # 65 ( Best Of : Imperial Red Ale ) COL Brew_Factory_Name VAL Sierra Nevada Brewing Co. . COL Style VAL American Amber / COL ABV VAL NUM 8 % [SEP] COL PRODUCT Beer_Name VAL Peter Bs Sum Of Hours Imperial Red Ale COL Brew_Factory_Name VAL Brewpub COL Style PRODUCT VAL American Strong COL ABV VAL NUM 9.50 %
+x: [  101  8902  5404  1035  2171 11748  2417  1011  2030  2594  1011  5404
+  3409  1001  3515  1006  2190  1997  1024  4461  2417 15669  1007  8902
+ 24702  1035  4713  1035  2171 11748  7838  7756   102  8902  4031  5404
+  1035  2171 11748  2848 18667  7680  1997  2847  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748 24702 14289  2497  8902  2806  4031
+ 11748  2137  2844   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'red', '-', 'or', '##ic', '-', 'beer', 'camp', '#', '65', '(', 'best', 'of', ':', 'imperial', 'red', 'ale', ')', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'sierra', 'nevada', '[SEP]', 'col', 'product', 'beer', '_', 'name', 'val', 'peter', 'bs', 'sum', 'of', 'hours', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brew', '##pu', '##b', 'col', 'style', 'product', 'val', 'american', 'strong', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.006911000236868858
+=========eval at epoch=10=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.945
+precision=0.737
+recall=1.000
+f1=0.848
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Bulleit Bourbon Barrel Aged PRODUCT G'Knight COL Brew_Factory_Name VAL Oskar Blues Grill & Brew COL Style VAL American Amber / Red Ale COL ABV VAL NUM 8.70 % [SEP] COL Beer_Name VAL MadTree Bourbon Barrel Aged Happy Amber COL Brew_Factory_Name VAL Brewing Company COL Style VAL Ale COL ABV VAL NUM 6 %
+x: [  101  8902  5404  1035  2171 11748  7087 20175 15477  8460  4793  4031
+  1043  1005  5000  8902 24702  1035  4713  1035  2171 11748 28626  5132
+ 18651  1004 24702  8902  2806 11748  2137  8994   102  8902  5404  1035
+  2171 11748  5506 13334 15477  8460  4793  3407  8994  8902 24702  1035
+  4713  1035  2171 11748 16005  2194  8902  2806 11748 15669  8902 11113
+  2615 11748 16371   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'bull', '##eit', 'bourbon', 'barrel', 'aged', 'product', 'g', "'", 'knight', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'oskar', 'blues', 'grill', '&', 'brew', 'col', 'style', 'val', 'american', 'amber', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'mad', '##tree', 'bourbon', 'barrel', 'aged', 'happy', 'amber', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'ale', 'col', 'ab', '##v', 'val', 'nu', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.004854239989072084
+=========eval at epoch=11=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.945
+precision=0.737
+recall=1.000
+f1=0.848
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Sanibel Red Island Ale COL Brew_Factory_Name VAL Point Ybel Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 5.60 % [SEP] COL Beer_Name VAL Point Ybel Sanibel Red Island Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL Irish COL ABV VAL NUM 5.60 %
+x: [  101  8902  5404  1035  2171 11748  2624 20755  2140  2417  2479 15669
+  8902 24702  1035  4713  1035  2171 11748  2391  1061  8671 16005  2194
+  8902  2806 11748  2137  8994  1013  8902 11113   102  8902  5404  1035
+  2171 11748  2391  1061  8671  2624 20755  2140  2417  2479 15669  8902
+ 24702  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748  3493
+  8902 11113  2615   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'san', '##ibe', '##l', 'red', 'island', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'point', 'y', '##bel', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'point', 'y', '##bel', 'san', '##ibe', '##l', 'red', 'island', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'irish', 'col', 'ab', '##v', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 1
+tags: 1
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.002366054803133011
+=========eval at epoch=12=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.786
+recall=0.786
+f1=0.786
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.967
+precision=0.824
+recall=1.000
+f1=0.903
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Double Dread Imperial Red Ale COL Brew_Factory_Name VAL Mad River Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 8.60 % [SEP] COL Beer_Name VAL Ballast Point Tongue Buckler Imperial Red Ale - Bourbon Barrel Aged COL Brew_Factory_Name VAL Brewing Company COL Style VAL American Strong PRODUCT COL ABV VAL NUM 10 %
+x: [  101  8902  5404  1035  2171 11748  3313 14436  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748  5506  2314 16005  2194  8902  2806
+ 11748  2137  8994  1013  8902 11113  2615 11748   102  8902  5404  1035
+  2171 11748 28030  2391  4416 22853  2099  4461  2417 15669  1011 15477
+  8460  4793  8902 24702  1035  4713  1035  2171 11748 16005  2194  8902
+  2806 11748  2137   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'double', 'dread', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'mad', 'river', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'ballast', 'point', 'tongue', 'buckle', '##r', 'imperial', 'red', 'ale', '-', 'bourbon', 'barrel', 'aged', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.011354412883520126
+=========eval at epoch=13=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.956
+precision=0.778
+recall=1.000
+f1=0.875
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Red 88 Imperial Amber Ale COL Brew_Factory_Name VAL River City Brewing Co. . COL PRODUCT Style VAL American / COL ABV VAL NUM 8 % [SEP] COL Beer_Name VAL Yukon You Only Live Once Imperial Red Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL Amber COL ABV VAL NUM 7.50 %
+x: [  101  8902  5404  1035  2171 11748  2417  6070  4461  8994 15669  8902
+ 24702  1035  4713  1035  2171 11748  2314  2103 16005  2522  1012  1012
+  8902  4031  2806 11748  2137  1013  8902 11113   102  8902  5404  1035
+  2171 11748 19898  2017  2069  2444  2320  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748  8994  8902
+ 11113  2615 11748   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'red', '88', 'imperial', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'river', 'city', 'brewing', 'co', '.', '.', 'col', 'product', 'style', 'val', 'american', '/', 'col', 'ab', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'yukon', 'you', 'only', 'live', 'once', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'amber', 'col', 'ab', '##v', 'val', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.01622607372701168
+=========eval at epoch=14=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.945
+precision=0.737
+recall=1.000
+f1=0.848
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Alaskan Barley Wine ( Pilot Series ) COL Brew_Factory_Name VAL Brewing Co. . COL Style VAL American Barleywine COL ABV VAL NUM 10.70 % [SEP] COL Beer_Name VAL Hermit Thrush Abbey Series NUM # 1 - Jolly Abbot Barley Wine COL Brew_Factory_Name VAL Brewery PRODUCT COL Style VAL COL ABV VAL NUM 13 %
+x: [  101  8902  5404  1035  2171 11748  7397  2078 21569  4511  1006  4405
+  2186  1007  8902 24702  1035  4713  1035  2171 11748 16005  2522  1012
+  1012  8902  2806 11748  2137 21569 21924  8902   102  8902  5404  1035
+  2171 11748 24308 27046  4095  6103  2186 16371  2213  1001  1015  1011
+ 22193 11428 21569  4511  8902 24702  1035  4713  1035  2171 11748 12161
+  4031  8902  2806   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'alaska', '##n', 'barley', 'wine', '(', 'pilot', 'series', ')', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'co', '.', '.', 'col', 'style', 'val', 'american', 'barley', '##wine', 'col', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'hermit', 'thru', '##sh', 'abbey', 'series', 'nu', '##m', '#', '1', '-', 'jolly', 'abbot', 'barley', 'wine', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewery', 'product', 'col', 'style', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.005258152261376381
+=========eval at epoch=15=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.956
+precision=0.778
+recall=1.000
+f1=0.875
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Isle Of Pines Barley Wine COL Brew_Factory_Name VAL Flying Goose Brew Pub & Grille COL Style PRODUCT VAL American Barleywine COL ABV VAL NUM 11 % [SEP] COL Beer_Name VAL Anderson Valley Barrel Aged Horn of the Beer Barley Wine COL Brew_Factory_Name VAL Brewing Company COL Style VAL COL ABV VAL NUM 8.60 %
+x: [  101  8902  5404  1035  2171 11748  8842  1997 17527 21569  4511  8902
+ 24702  1035  4713  1035  2171 11748  3909 13020 24702  9047  1004 26192
+  8902  2806  4031 11748  2137 21569 21924  8902   102  8902  5404  1035
+  2171 11748  5143  3028  8460  4793  7109  1997  1996  5404 21569  4511
+  8902 24702  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748
+  8902 11113  2615   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'isle', 'of', 'pines', 'barley', 'wine', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'flying', 'goose', 'brew', 'pub', '&', 'grille', 'col', 'style', 'product', 'val', 'american', 'barley', '##wine', 'col', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'anderson', 'valley', 'barrel', 'aged', 'horn', 'of', 'the', 'beer', 'barley', 'wine', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'col', 'ab', '##v', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.002228017896413803
+=========eval at epoch=16=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.956
+precision=0.778
+recall=1.000
+f1=0.875
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Olde Richmond Batch No . 9 PRODUCT Red Ale COL Brew_Factory_Name VAL Beer Company COL Style VAL American Amber / COL ABV VAL - [SEP] COL Beer_Name VAL Engine House No . 9 PRODUCT Rowdy Dick Amber Ale COL Brew_Factory_Name VAL Restaurant and Brewery COL Style VAL COL ABV VAL NUM 5.30 %
+x: [  101  8902  5404  1035  2171 11748  2214  2063  6713 14108  2053  1012
+  1023  4031  2417 15669  8902 24702  1035  4713  1035  2171 11748  5404
+  2194  8902  2806 11748  2137  8994  1013  8902   102  8902  5404  1035
+  2171 11748  3194  2160  2053  1012  1023  4031  5216  5149  5980  8994
+ 15669  8902 24702  1035  4713  1035  2171 11748  4825  1998 12161  8902
+  2806 11748  8902   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'old', '##e', 'richmond', 'batch', 'no', '.', '9', 'product', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'beer', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'engine', 'house', 'no', '.', '9', 'product', 'row', '##dy', 'dick', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'restaurant', 'and', 'brewery', 'col', 'style', 'val', 'col', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0034926217049360275
+=========eval at epoch=17=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.945
+precision=0.737
+recall=1.000
+f1=0.848
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Olde Richmond Batch No . 9 PRODUCT Red Ale COL Brew_Factory_Name VAL Beer Company COL Style VAL American Amber / COL ABV VAL - [SEP] COL Beer_Name VAL Engine House No . 9 PRODUCT Rowdy Dick Amber Ale COL Brew_Factory_Name VAL Restaurant and Brewery COL Style VAL COL ABV VAL NUM 5.30 %
+x: [  101  8902  5404  1035  2171 11748  2214  2063  6713 14108  2053  1012
+  1023  4031  2417 15669  8902 24702  1035  4713  1035  2171 11748  5404
+  2194  8902  2806 11748  2137  8994  1013  8902   102  8902  5404  1035
+  2171 11748  3194  2160  2053  1012  1023  4031  5216  5149  5980  8994
+ 15669  8902 24702  1035  4713  1035  2171 11748  4825  1998 12161  8902
+  2806 11748  8902   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'old', '##e', 'richmond', 'batch', 'no', '.', '9', 'product', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'beer', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'engine', 'house', 'no', '.', '9', 'product', 'row', '##dy', 'dick', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'restaurant', 'and', 'brewery', 'col', 'style', 'val', 'col', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.01657615788280964
+=========eval at epoch=18=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Ulysses Imperial Red Ale COL Brew_Factory_Name VAL Barley 's Brewing Company COL Style VAL American Amber / COL ABV VAL - [SEP] COL Beer_Name VAL Ballast Point Tongue Buckler Imperial Red Ale - Bourbon Barrel Aged COL Brew_Factory_Name VAL Brewing Company COL Style VAL American Strong PRODUCT COL ABV VAL NUM 10 %
+x: [  101  8902  5404  1035  2171 11748 22784  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748 21569  1005  1055 16005  2194  8902  2806
+ 11748  2137  8994  1013  8902 11113  2615 11748   102  8902  5404  1035
+  2171 11748 28030  2391  4416 22853  2099  4461  2417 15669  1011 15477
+  8460  4793  8902 24702  1035  4713  1035  2171 11748 16005  2194  8902
+  2806 11748  2137   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'ulysses', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'barley', "'", 's', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'ballast', 'point', 'tongue', 'buckle', '##r', 'imperial', 'red', 'ale', '-', 'bourbon', 'barrel', 'aged', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0026902593672275543
+=========eval at epoch=19=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Double Mongrel Imperial India Red Ale COL Brew_Factory_Name VAL Aspetuck Brew Lab COL Style VAL American Amber / COL ABV VAL NUM 9 % [SEP] COL Beer_Name VAL Spring House Atomic Raygun Imperial Red Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL American PRODUCT Strong COL ABV VAL NUM 8.30 %
+x: [  101  8902  5404  1035  2171 11748  3313 12256 17603  2140  4461  2634
+  2417 15669  8902 24702  1035  4713  1035  2171 11748  2004 22327 12722
+ 24702  6845  8902  2806 11748  2137  8994  1013   102  8902  5404  1035
+  2171 11748  3500  2160  9593  4097 12734  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748  2137  4031
+  2844  8902 11113   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'double', 'mon', '##gre', '##l', 'imperial', 'india', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'as', '##pet', '##uck', 'brew', 'lab', 'col', 'style', 'val', 'american', 'amber', '/', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'spring', 'house', 'atomic', 'ray', '##gun', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', 'product', 'strong', 'col', 'ab', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.004509719088673592
+=========eval at epoch=20=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Photobomb Imperial Red Ale COL Brew_Factory_Name VAL Crooked Ladder Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 8.50 % [SEP] COL Beer_Name VAL ShuBrew Heart and Sole Imperial Red Ale COL Brew_Factory_Name VAL COL Style PRODUCT VAL American Strong COL ABV VAL NUM 6.80 %
+x: [  101  8902  5404  1035  2171 11748  6302  5092 14905  4461  2417 15669
+  8902 24702  1035  4713  1035  2171 11748 15274 10535 16005  2194  8902
+  2806 11748  2137  8994  1013  8902 11113  2615   102  8902  5404  1035
+  2171 11748 18454 13578  2860  2540  1998  7082  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748  8902  2806  4031 11748  2137  2844
+  8902 11113  2615   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'photo', '##bo', '##mb', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'crooked', 'ladder', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'shu', '##bre', '##w', 'heart', 'and', 'sole', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'col', 'style', 'product', 'val', 'american', 'strong', 'col', 'ab', '##v', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0024876873940229416
+=========eval at epoch=21=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Hop Around Imperial Red Ale COL Brew_Factory_Name VAL Big Bay Brewing Co. . COL Style VAL American Amber / COL ABV VAL NUM 9 % [SEP] COL Beer_Name VAL Speakeasy Wet Hop Prohibition Red Ale COL Brew_Factory_Name VAL Ales and PRODUCT Lagers COL Style VAL Amber COL ABV VAL NUM 6.10 %
+x: [  101  8902  5404  1035  2171 11748  6154  2105  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748  2502  3016 16005  2522  1012  1012
+  8902  2806 11748  2137  8994  1013  8902 11113   102  8902  5404  1035
+  2171 11748  3713  5243  6508  4954  6154 13574  2417 15669  8902 24702
+  1035  4713  1035  2171 11748 15669  2015  1998  4031  2474 15776  8902
+  2806 11748  8994   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'hop', 'around', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'big', 'bay', 'brewing', 'co', '.', '.', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'speak', '##ea', '##sy', 'wet', 'hop', 'prohibition', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'ale', '##s', 'and', 'product', 'la', '##gers', 'col', 'style', 'val', 'amber', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0019144099205732346
+=========eval at epoch=22=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Lagunitas Imperial Red Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 7.80 % [SEP] COL Beer_Name VAL Three Heads Buffalo Soul Jah Imperial Red Ale COL Brew_Factory_Name VAL Custom Brewcrafters COL Style VAL American Strong COL ABV VAL NUM 9.20 %
+x: [  101  8902  5404  1035  2171 11748  2474 12734 24317  4461  2417 15669
+  8902 24702  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748
+  2137  8994  1013  8902 11113  2615 11748 16371   102  8902  5404  1035
+  2171 11748  2093  4641  6901  3969 14855  2232  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748  7661 24702 10419  2545  8902  2806
+ 11748  2137  2844   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'la', '##gun', '##itas', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', 'nu', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'three', 'heads', 'buffalo', 'soul', 'ja', '##h', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'custom', 'brew', '##craft', '##ers', 'col', 'style', 'val', 'american', 'strong', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0028827283531427383
+=========eval at epoch=23=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Brewmaster 's Reserve Imperial Red Ale COL Brew_Factory_Name VAL BJ Chicago Pizza & Brewery Inc. . COL Style VAL American Amber / COL ABV VAL NUM 9.20 % [SEP] COL Beer_Name VAL Rock Bottom Orland Park King of Hearts Imperial Red Ale COL Brew_Factory_Name VAL COL Style PRODUCT VAL American Strong COL ABV VAL NUM 7.60 %
+x: [  101  8902  5404  1035  2171 11748 24702  8706  1005  1055  3914  4461
+  2417 15669  8902 24702  1035  4713  1035  2171 11748  1038  3501  3190
+ 10733  1004 12161  4297  1012  1012  8902  2806   102  8902  5404  1035
+  2171 11748  2600  3953  2030  3122  2380  2332  1997  8072  4461  2417
+ 15669  8902 24702  1035  4713  1035  2171 11748  8902  2806  4031 11748
+  2137  2844  8902   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'brew', '##master', "'", 's', 'reserve', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'b', '##j', 'chicago', 'pizza', '&', 'brewery', 'inc', '.', '.', 'col', 'style', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'rock', 'bottom', 'or', '##land', 'park', 'king', 'of', 'hearts', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'col', 'style', 'product', 'val', 'american', 'strong', 'col', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.010864464566111565
+=========eval at epoch=24=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Simeon Jones River Valley Amber Ale COL Brew_Factory_Name VAL Picaroons Brewing Co. . COL PRODUCT Style VAL American / Red COL ABV VAL NUM 4.50 % [SEP] COL Beer_Name VAL Piney River McKinney Eddy Amber Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL PRODUCT COL ABV VAL -
+x: [  101  8902  5404  1035  2171 11748 24371  3557  2314  3028  8994 15669
+  8902 24702  1035  4713  1035  2171 11748 27263 10464  5644 16005  2522
+  1012  1012  8902  4031  2806 11748  2137  1013   102  8902  5404  1035
+  2171 11748  7222  2100  2314 11338  4939  5420 16645  8994 15669  8902
+ 24702  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748  4031
+  8902 11113  2615   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'simeon', 'jones', 'river', 'valley', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'pic', '##aro', '##ons', 'brewing', 'co', '.', '.', 'col', 'product', 'style', 'val', 'american', '/', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'pine', '##y', 'river', 'mc', '##kin', '##ney', 'eddy', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'product', 'col', 'ab', '##v', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0017737746238708496
+=========eval at epoch=25=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Double Mongrel Imperial India Red Ale COL Brew_Factory_Name VAL Aspetuck Brew Lab COL Style VAL American Amber / COL ABV VAL NUM 9 % [SEP] COL Beer_Name VAL Boxing Cat Firecracker Imperial Red Ale COL Brew_Factory_Name VAL Brewery COL Style VAL Amber COL ABV VAL NUM 6.60 %
+x: [  101  8902  5404  1035  2171 11748  3313 12256 17603  2140  4461  2634
+  2417 15669  8902 24702  1035  4713  1035  2171 11748  2004 22327 12722
+ 24702  6845  8902  2806 11748  2137  8994  1013   102  8902  5404  1035
+  2171 11748  8362  4937  2543 26775 25418  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748 12161  8902  2806 11748  8994  8902 11113
+  2615 11748 16371   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'double', 'mon', '##gre', '##l', 'imperial', 'india', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'as', '##pet', '##uck', 'brew', 'lab', 'col', 'style', 'val', 'american', 'amber', '/', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'boxing', 'cat', 'fire', '##cr', '##acker', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewery', 'col', 'style', 'val', 'amber', 'col', 'ab', '##v', 'val', 'nu', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0051436349749565125
+=========eval at epoch=26=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Big Bully Amber Ale COL Brew_Factory_Name VAL Edge Brewing COL Style VAL American / Red COL ABV VAL NUM 5 % [SEP] COL Beer_Name VAL Big Time Atlas Amber Ale COL Brew_Factory_Name VAL Brewery PRODUCT COL Style VAL COL ABV VAL NUM 5.40 %
+x: [  101  8902  5404  1035  2171 11748  2502 20716  8994 15669  8902 24702
+  1035  4713  1035  2171 11748  3341 16005  8902  2806 11748  2137  1013
+  2417  8902 11113  2615 11748 16371  2213  1019   102  8902  5404  1035
+  2171 11748  2502  2051 11568  8994 15669  8902 24702  1035  4713  1035
+  2171 11748 12161  4031  8902  2806 11748  8902 11113  2615 11748 16371
+  2213  1019  1012   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'big', 'bully', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'edge', 'brewing', 'col', 'style', 'val', 'american', '/', 'red', 'col', 'ab', '##v', 'val', 'nu', '##m', '5', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'big', 'time', 'atlas', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewery', 'product', 'col', 'style', 'val', 'col', 'ab', '##v', 'val', 'nu', '##m', '5', '.', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.001966051757335663
+=========eval at epoch=27=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Batch 200 _ ` ` Olympus Mons Imperial Red Ale COL Brew_Factory_Name VAL Due South Brewing Co. . COL PRODUCT Style VAL American Amber / COL ABV VAL NUM 9.20 % [SEP] COL Beer_Name VAL Ale Mania Imperial Red COL Brew_Factory_Name VAL & # NUM 40 ; Fritz & # NUM 41 ; COL Style VAL American Strong COL ABV VAL NUM 9.50 %
+x: [  101  8902  5404  1035  2171 11748 14108  3263  1035  1036  1036 26742
+ 29408  4461  2417 15669  8902 24702  1035  4713  1035  2171 11748  2349
+  2148 16005  2522  1012  1012  8902  4031  2806   102  8902  5404  1035
+  2171 11748 15669 29310  4461  2417  8902 24702  1035  4713  1035  2171
+ 11748  1004  1001 16371  2213  2871  1025 12880  1004  1001 16371  2213
+  4601  1025  8902   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'batch', '200', '_', '`', '`', 'olympus', 'mons', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'due', 'south', 'brewing', 'co', '.', '.', 'col', 'product', 'style', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'ale', 'mania', 'imperial', 'red', 'col', 'brew', '_', 'factory', '_', 'name', 'val', '&', '#', 'nu', '##m', '40', ';', 'fritz', '&', '#', 'nu', '##m', '41', ';', 'col', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0035158004611730576
+=========eval at epoch=28=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Strada S. Felice COL Brew_Factory_Name VAL Grado Plato COL PRODUCT Style VAL American Amber / Red Ale COL ABV VAL NUM 8 % [SEP] COL Beer_Name VAL Grado Plato Strada S. Felice COL Brew_Factory_Name VAL Birrificio COL Style VAL Spice / Herb / Vegetable COL ABV VAL NUM 8 %
+x: [  101  8902  5404  1035  2171 11748  2358 28510  1055  1012 10768 13231
+  8902 24702  1035  4713  1035  2171 11748 24665  9365 18858  8902  4031
+  2806 11748  2137  8994  1013  2417 15669  8902   102  8902  5404  1035
+  2171 11748 24665  9365 18858  2358 28510  1055  1012 10768 13231  8902
+ 24702  1035  4713  1035  2171 11748 12170 18752  8873  9793  8902  2806
+ 11748 17688  1013   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'st', '##rada', 's', '.', 'fe', '##lice', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'gr', '##ado', 'plato', 'col', 'product', 'style', 'val', 'american', 'amber', '/', 'red', 'ale', 'col', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'gr', '##ado', 'plato', 'st', '##rada', 's', '.', 'fe', '##lice', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'bi', '##rri', '##fi', '##cio', 'col', 'style', 'val', 'spice', '/', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 1
+tags: 1
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.005180481821298599
+=========eval at epoch=29=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Winter Seasonal Amber Ale COL Brew_Factory_Name VAL Dead Frog Brewing COL Style VAL American / Red COL ABV VAL NUM 5 % [SEP] COL Beer_Name VAL Brewsters Winter WARMer Amber Ale COL Brew_Factory_Name VAL Brewing Co. - Alberta COL Style VAL COL ABV VAL NUM 6 %
+x: [  101  8902  5404  1035  2171 11748  3467 12348  8994 15669  8902 24702
+  1035  4713  1035  2171 11748  2757 10729 16005  8902  2806 11748  2137
+  1013  2417  8902 11113  2615 11748 16371  2213   102  8902  5404  1035
+  2171 11748 23009  2015  3467 16676  8994 15669  8902 24702  1035  4713
+  1035  2171 11748 16005  2522  1012  1011  7649  8902  2806 11748  8902
+ 11113  2615 11748   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'winter', 'seasonal', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'dead', 'frog', 'brewing', 'col', 'style', 'val', 'american', '/', 'red', 'col', 'ab', '##v', 'val', 'nu', '##m', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'brewster', '##s', 'winter', 'warmer', 'amber', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'co', '.', '-', 'alberta', 'col', 'style', 'val', 'col', 'ab', '##v', 'val', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.003411354497075081
+=========eval at epoch=30=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Barrel Aged Imperial Red Ale COL Brew_Factory_Name VAL Boone Valley Brewing COL Style VAL American Amber / COL ABV VAL NUM 9.99 % [SEP] COL Beer_Name VAL Laurelwood Organic Deranger Imperial Red Ale COL Brew_Factory_Name VAL Public House & Brewery COL Style VAL American Strong PRODUCT COL ABV VAL NUM 8.60 %
+x: [  101  8902  5404  1035  2171 11748  8460  4793  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748 15033  3028 16005  8902  2806 11748
+  2137  8994  1013  8902 11113  2615 11748 16371   102  8902  5404  1035
+  2171 11748 11893  3702  7554  4315 25121  4461  2417 15669  8902 24702
+  1035  4713  1035  2171 11748  2270  2160  1004 12161  8902  2806 11748
+  2137  2844  4031   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'barrel', 'aged', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'boone', 'valley', 'brewing', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', 'nu', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'laurel', '##wood', 'organic', 'der', '##anger', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'public', 'house', '&', 'brewery', 'col', 'style', 'val', 'american', 'strong', 'product', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.001601971685886383
+=========eval at epoch=31=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Fresh Hop Red COL Brew_Factory_Name VAL Liquid Mechanics Brewing Co. . COL Style VAL American Amber / Ale COL ABV VAL NUM 7.40 % [SEP] COL Beer_Name VAL Ice Harbor Double Red Ale - Fresh Hop COL Brew_Factory_Name VAL Brewing Company COL Style VAL Amber COL ABV VAL NUM 7 %
+x: [  101  8902  5404  1035  2171 11748  4840  6154  2417  8902 24702  1035
+  4713  1035  2171 11748  6381  9760 16005  2522  1012  1012  8902  2806
+ 11748  2137  8994  1013 15669  8902 11113  2615   102  8902  5404  1035
+  2171 11748  3256  6496  3313  2417 15669  1011  4840  6154  8902 24702
+  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748  8994  8902
+ 11113  2615 11748   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'fresh', 'hop', 'red', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'liquid', 'mechanics', 'brewing', 'co', '.', '.', 'col', 'style', 'val', 'american', 'amber', '/', 'ale', 'col', 'ab', '##v', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'ice', 'harbor', 'double', 'red', 'ale', '-', 'fresh', 'hop', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'amber', 'col', 'ab', '##v', 'val', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.002753220498561859
+=========eval at epoch=32=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Barrel Aged Series : Barley Wine COL Brew_Factory_Name VAL Parallel 49 Brewing Company COL Style VAL American Barleywine COL ABV VAL NUM 11.80 % [SEP] COL Beer_Name VAL Elevator Barrel Aged Barley Wine COL Brew_Factory_Name VAL Brewing Company COL Style VAL PRODUCT COL ABV VAL -
+x: [  101  8902  5404  1035  2171 11748  8460  4793  2186  1024 21569  4511
+  8902 24702  1035  4713  1035  2171 11748  5903  4749 16005  2194  8902
+  2806 11748  2137 21569 21924  8902 11113  2615 11748 16371   102  8902
+  5404  1035  2171 11748  7764  8460  4793 21569  4511  8902 24702  1035
+  4713  1035  2171 11748 16005  2194  8902  2806 11748  4031  8902 11113
+  2615 11748  1011   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'barrel', 'aged', 'series', ':', 'barley', 'wine', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'parallel', '49', 'brewing', 'company', 'col', 'style', 'val', 'american', 'barley', '##wine', 'col', 'ab', '##v', 'val', 'nu', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'elevator', 'barrel', 'aged', 'barley', 'wine', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'product', 'col', 'ab', '##v', 'val', '-', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0018811635673046112
+=========eval at epoch=33=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Bulleit Bourbon Barrel Aged PRODUCT G'Knight COL Brew_Factory_Name VAL Oskar Blues Grill & Brew COL Style VAL American Amber / Red Ale COL ABV VAL NUM 8.70 % [SEP] COL Beer_Name VAL Lompoc Bourbon Barrel Aged Old Tavern Rat COL Brew_Factory_Name PRODUCT VAL Brewing COL Style VAL Barley Wine COL ABV VAL NUM 9.70 %
+x: [  101  8902  5404  1035  2171 11748  7087 20175 15477  8460  4793  4031
+  1043  1005  5000  8902 24702  1035  4713  1035  2171 11748 28626  5132
+ 18651  1004 24702  8902  2806 11748  2137  8994   102  8902  5404  1035
+  2171 11748  8840  8737 10085 15477  8460  4793  2214 13090  9350  8902
+ 24702  1035  4713  1035  2171  4031 11748 16005  8902  2806 11748 21569
+  4511  8902 11113   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'bull', '##eit', 'bourbon', 'barrel', 'aged', 'product', 'g', "'", 'knight', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'oskar', 'blues', 'grill', '&', 'brew', 'col', 'style', 'val', 'american', 'amber', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'lo', '##mp', '##oc', 'bourbon', 'barrel', 'aged', 'old', 'tavern', 'rat', 'col', 'brew', '_', 'factory', '_', 'name', 'product', 'val', 'brewing', 'col', 'style', 'val', 'barley', 'wine', 'col', 'ab', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0017579756677150726
+=========eval at epoch=34=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Batch 200 _ ` ` Olympus Mons Imperial Red Ale COL Brew_Factory_Name VAL Due South Brewing Co. . COL PRODUCT Style VAL American Amber / COL ABV VAL NUM 9.20 % [SEP] COL Beer_Name VAL Ale Mania Imperial Red COL Brew_Factory_Name VAL & # NUM 40 ; Fritz & # NUM 41 ; COL Style VAL American Strong COL ABV VAL NUM 9.50 %
+x: [  101  8902  5404  1035  2171 11748 14108  3263  1035  1036  1036 26742
+ 29408  4461  2417 15669  8902 24702  1035  4713  1035  2171 11748  2349
+  2148 16005  2522  1012  1012  8902  4031  2806   102  8902  5404  1035
+  2171 11748 15669 29310  4461  2417  8902 24702  1035  4713  1035  2171
+ 11748  1004  1001 16371  2213  2871  1025 12880  1004  1001 16371  2213
+  4601  1025  8902   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'batch', '200', '_', '`', '`', 'olympus', 'mons', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'due', 'south', 'brewing', 'co', '.', '.', 'col', 'product', 'style', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'ale', 'mania', 'imperial', 'red', 'col', 'brew', '_', 'factory', '_', 'name', 'val', '&', '#', 'nu', '##m', '40', ';', 'fritz', '&', '#', 'nu', '##m', '41', ';', 'col', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.00318261981010437
+=========eval at epoch=35=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Bulleit Bourbon Barrel Aged PRODUCT G'Knight COL Brew_Factory_Name VAL Oskar Blues Grill & Brew COL Style VAL American Amber / Red Ale COL ABV VAL NUM 8.70 % [SEP] COL Beer_Name VAL Lompoc Bourbon Barrel Aged Old Tavern Rat COL Brew_Factory_Name PRODUCT VAL Brewing COL Style VAL Barley Wine COL ABV VAL NUM 9.70 %
+x: [  101  8902  5404  1035  2171 11748  7087 20175 15477  8460  4793  4031
+  1043  1005  5000  8902 24702  1035  4713  1035  2171 11748 28626  5132
+ 18651  1004 24702  8902  2806 11748  2137  8994   102  8902  5404  1035
+  2171 11748  8840  8737 10085 15477  8460  4793  2214 13090  9350  8902
+ 24702  1035  4713  1035  2171  4031 11748 16005  8902  2806 11748 21569
+  4511  8902 11113   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'bull', '##eit', 'bourbon', 'barrel', 'aged', 'product', 'g', "'", 'knight', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'oskar', 'blues', 'grill', '&', 'brew', 'col', 'style', 'val', 'american', 'amber', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'lo', '##mp', '##oc', 'bourbon', 'barrel', 'aged', 'old', 'tavern', 'rat', 'col', 'brew', '_', 'factory', '_', 'name', 'product', 'val', 'brewing', 'col', 'style', 'val', 'barley', 'wine', 'col', 'ab', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0034703444689512253
+=========eval at epoch=36=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Double Dread Imperial Red Ale COL Brew_Factory_Name VAL Mad River Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 8.60 % [SEP] COL Beer_Name VAL Scuttlebutt Mateo Loco Imperial Red Ale COL Brew_Factory_Name VAL Brewing Co. . COL Style VAL American Strong COL ABV VAL NUM 7.10 %
+x: [  101  8902  5404  1035  2171 11748  3313 14436  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748  5506  2314 16005  2194  8902  2806
+ 11748  2137  8994  1013  8902 11113  2615 11748   102  8902  5404  1035
+  2171 11748  8040  4904  9286  8569  4779 19327 28046  4461  2417 15669
+  8902 24702  1035  4713  1035  2171 11748 16005  2522  1012  1012  8902
+  2806 11748  2137   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'double', 'dread', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'mad', 'river', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'sc', '##ut', '##tle', '##bu', '##tt', 'mateo', 'loco', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'co', '.', '.', 'col', 'style', 'val', 'american', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0029141083359718323
+=========eval at epoch=37=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Hearthstone Red Rye Ale COL Brew_Factory_Name VAL Brewery PRODUCT COL Style VAL American Amber / COL ABV VAL NUM 5 % [SEP] COL Beer_Name VAL Hearthstone Red Rye Ale COL Brew_Factory_Name VAL Brewery COL Style VAL Specialty Grain COL ABV VAL NUM 5 %
+x: [  101  8902  5404  1035  2171 11748 22885  9221  2417 20926 15669  8902
+ 24702  1035  4713  1035  2171 11748 12161  4031  8902  2806 11748  2137
+  8994  1013  8902 11113  2615 11748 16371  2213   102  8902  5404  1035
+  2171 11748 22885  9221  2417 20926 15669  8902 24702  1035  4713  1035
+  2171 11748 12161  8902  2806 11748 12233  8982  8902 11113  2615 11748
+ 16371  2213  1019   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'hearth', '##stone', 'red', 'rye', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewery', 'product', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', 'nu', '##m', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'hearth', '##stone', 'red', 'rye', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewery', 'col', 'style', 'val', 'specialty', 'grain', 'col', 'ab', '##v', 'val', 'nu', '##m', '5', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 1
+tags: 1
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.002425340935587883
+=========eval at epoch=38=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Sledgehammer Imperial Red Ale COL Brew_Factory_Name VAL Cambridge Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 7.75 % [SEP] COL Beer_Name VAL Anacapa Riptide Imperial Red Ale COL Brew_Factory_Name VAL Brewing Company COL Style VAL American PRODUCT Strong COL ABV VAL NUM 8 %
+x: [  101  8902  5404  1035  2171 11748 22889 24225 19742  4461  2417 15669
+  8902 24702  1035  4713  1035  2171 11748  4729 16005  2194  8902  2806
+ 11748  2137  8994  1013  8902 11113  2615 11748   102  8902  5404  1035
+  2171 11748  9617 17695  2050 10973  3775  3207  4461  2417 15669  8902
+ 24702  1035  4713  1035  2171 11748 16005  2194  8902  2806 11748  2137
+  4031  2844  8902   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'sl', '##edge', '##hammer', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'cambridge', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', 'val', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'ana', '##cap', '##a', 'rip', '##ti', '##de', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'brewing', 'company', 'col', 'style', 'val', 'american', 'product', 'strong', 'col', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.0018232688307762146
+=========eval at epoch=39=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
+=====sanity check======
+words: COL Beer_Name VAL Photobomb Imperial Red Ale COL Brew_Factory_Name VAL Crooked Ladder Brewing Company COL Style VAL American Amber / COL ABV VAL NUM 8.50 % [SEP] COL Beer_Name VAL Howe Sound Three Beavers Imperial Red Ale COL Brew_Factory_Name PRODUCT VAL Brewing COL Style VAL American Strong COL ABV VAL NUM 7.50 %
+x: [  101  8902  5404  1035  2171 11748  6302  5092 14905  4461  2417 15669
+  8902 24702  1035  4713  1035  2171 11748 15274 10535 16005  2194  8902
+  2806 11748  2137  8994  1013  8902 11113  2615   102  8902  5404  1035
+  2171 11748 13358  2614  2093 13570  2015  4461  2417 15669  8902 24702
+  1035  4713  1035  2171  4031 11748 16005  8902  2806 11748  2137  2844
+  8902 11113  2615   102]
+tokens: ['[CLS]', 'col', 'beer', '_', 'name', 'val', 'photo', '##bo', '##mb', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'val', 'crooked', 'ladder', 'brewing', 'company', 'col', 'style', 'val', 'american', 'amber', '/', 'col', 'ab', '##v', '[SEP]', 'col', 'beer', '_', 'name', 'val', 'howe', 'sound', 'three', 'beaver', '##s', 'imperial', 'red', 'ale', 'col', 'brew', '_', 'factory', '_', 'name', 'product', 'val', 'brewing', 'col', 'style', 'val', 'american', 'strong', 'col', 'ab', '##v', '[SEP]']
+is_heads: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+y: 0
+tags: 0
+mask: tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+seqlen: 64
+task_name: Structured/Beer
+=======================
+step: 0, task: Structured/Beer, loss: 0.002910986542701721
+=========eval at epoch=40=========
+Validation:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.750
+recall=0.857
+f1=0.800
+======================================
+Test:
+=============Structured/Beer==================
+accuracy=0.934
+precision=0.700
+recall=1.000
+f1=0.824
+======================================
