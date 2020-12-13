@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "train_ditto.py", line 8, in <module>
+    from ditto.dataset import DittoDataset
+  File "/w/246/tianyu2020/ditto/ditto/dataset.py", line 148
+    f"len(x)={len(x)}, len(y)={len(y)}, len(is_heads)={len(is_heads)}"
+                                                                     ^
+SyntaxError: invalid syntax
