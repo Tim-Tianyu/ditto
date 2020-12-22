@@ -1,6 +1,7 @@
 import json
 import random
 import numpy as np
+from typingerror import TypingMesser
 
 class Augmenter(object):
     """Data augmentation operator.
@@ -10,7 +11,7 @@ class Augmenter(object):
     def __init__(self):
         pass
 
-    def augment(self, tokens, labels, op='del'):
+    def augment(self, tokens, labels, op='del', typing_error_rate = 0.0):
         """ Performs data augmentation on a sequence of tokens
 
         The supported ops:
@@ -41,6 +42,15 @@ class Augmenter(object):
                 return tokens, labels
             new_tokens = tokens[:pos1] + tokens[pos2+1:]
             new_labels = tokens[:pos1] + labels[pos2+1:]
+        elif 'type_error' in op:
+            messer = TypingMesser(typing_error_rate)
+            new_tokens = []
+            new_labels = labels[:]
+            for idx, label in enumerate(labels):
+                if label == 'O':
+                    new_tokens.append(messer.addTypingError(tokens[idx]))
+                else:
+                    new_tokens.append(tokens[idx])
         elif 'swap' in op:
             span_len = random.randint(2, 4)
             pos1, pos2 = self.sample_span(tokens, labels, span_len=span_len)
@@ -187,7 +197,7 @@ class Augmenter(object):
         return new_tokens, new_labels
 
 
-    def augment_sent(self, text, op='all'):
+    def augment_sent(self, text, op='all', typing_error_rate = 0.0):
         """ Performs data augmentation on a classification example.
 
         Similar to augment(tokens, labels) but works for sentences
@@ -226,7 +236,7 @@ class Augmenter(object):
             for op in random.choices(ops, k=N):
                 tokens, labels = self.augment(tokens, labels, op=op)
         else:
-            tokens, labels = self.augment(tokens, labels, op=op)
+            tokens, labels = self.augment(tokens, labels, op=op, typing_error_rate=typing_error_rate)
         results = ' '.join(tokens)
         return results
 
@@ -261,6 +271,7 @@ if __name__ == '__main__':
                'drop_same',
                'swap',
                'ins',
-               'all']:
+               'all',
+               'type_error']:
         print(op)
-        print(ag.augment_sent(text, op=op))
+        print(ag.augment_sent(text, op=op, typing_error_rate=1.0))
