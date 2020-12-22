@@ -65,7 +65,7 @@ class TypingMesser(object):
 
     def insertion(self, word):
         idx = random.choice(range(len(word))) + 1
-        if word[idx-1].isalpha():
+        if word[idx-1].lower() in KBMatrix:
             c = KBMatrix[word[idx-1].lower()].pickOne()
             return word[:idx] + c + word[idx:]
         elif word[idx-1].isdigit():
