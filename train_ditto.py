@@ -37,8 +37,8 @@ if __name__=="__main__":
     task = hp.task
 
     # create the tag of the run
-    run_tag = '%s_lm=%s_da=%s_dk=%s_su=%s_size=%s_id=%d' % (task, hp.lm, hp.da,
-            hp.dk, hp.summarize, str(hp.size), hp.run_id)
+    run_tag = '%s_lm=%s_da=%s_dk=%s_su=%s_error=%s_size=%s_id=%d' % (task, hp.lm, hp.da,
+            hp.dk, hp.summarize, str(hp.test_typing_error), str(hp.size), hp.run_id)
     run_tag = run_tag.replace('/', '_')
 
     # load task configuration
