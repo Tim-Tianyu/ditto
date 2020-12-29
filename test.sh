@@ -1,3 +1,7 @@
 #!/bin/bash
-CUDA_VISIBLE_DEVICES=0 python train_ditto.py --task Structured/Beer --batch_size 64 --max_len 64 --lr 3e-5 --n_epochs 40 --finetuning --lm distilbert --fp16 --summarize --test_typing_error 0.6
-CUDA_VISIBLE_DEVICES=0 python train_ditto.py --task Structured/Beer --batch_size 64 --max_len 64 --lr 3e-5 --n_epochs 40 --finetuning --lm distilbert --fp16 --summarize --test_typing_error 0.0
+CUDA_VISIBLE_DEVICES=0 python train_ditto.py --task Structured/Beer --batch_size 32 --lr 3e-5 --n_epochs 40 --finetuning --lm roberta --fp16 --summarize --test_typing_error 0.4 --seed 233 --run_id 1
+CUDA_VISIBLE_DEVICES=0 python train_ditto.py --task Structured/Beer --batch_size 32 --lr 3e-5 --n_epochs 40 --finetuning --lm roberta --fp16 --summarize --test_typing_error 0.4 --seed 233 --run_id 2
+CUDA_VISIBLE_DEVICES=0 python train_ditto.py --task Structured/Beer --batch_size 32 --lr 3e-5 --n_epochs 40 --finetuning --lm roberta --fp16 --summarize --test_typing_error 0.4 --seed 233 --run_id 3
+CUDA_VISIBLE_DEVICES=0 python train_ditto.py --task Structured/Beer --batch_size 32 --lr 3e-5 --n_epochs 40 --finetuning --lm roberta --fp16 --summarize --test_typing_error 0.4 --seed 2123 --run_id 4
+CUDA_VISIBLE_DEVICES=0 python train_ditto.py --task Structured/Beer --batch_size 32 --lr 3e-5 --n_epochs 40 --finetuning --lm roberta --fp16 --summarize --test_typing_error 0.4 --seed 2123 --run_id 5
+CUDA_VISIBLE_DEVICES=0 python train_ditto.py --task Structured/Beer --batch_size 32 --lr 3e-5 --n_epochs 40 --finetuning --lm roberta --fp16 --summarize --test_typing_error 0.4 --seed 4321 --run_id 6

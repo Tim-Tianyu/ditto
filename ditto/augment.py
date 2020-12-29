@@ -11,7 +11,7 @@ class Augmenter(object):
     def __init__(self):
         pass
 
-    def augment(self, tokens, labels, op='del', typing_error_rate = 0.0):
+    def augment(self, tokens, labels, op='del', typing_error_rate = 0.0, randomer = None):
         """ Performs data augmentation on a sequence of tokens
 
         The supported ops:
@@ -43,7 +43,7 @@ class Augmenter(object):
             new_tokens = tokens[:pos1] + tokens[pos2+1:]
             new_labels = tokens[:pos1] + labels[pos2+1:]
         elif 'type_error' in op:
-            messer = TypingMesser(typing_error_rate)
+            messer = TypingMesser(typing_error_rate, randomer)
             new_tokens = []
             new_labels = labels[:]
             for idx, label in enumerate(labels):
@@ -197,7 +197,7 @@ class Augmenter(object):
         return new_tokens, new_labels
 
 
-    def augment_sent(self, text, op='all', typing_error_rate = 0.0):
+    def augment_sent(self, text, op='all', typing_error_rate = 0.0, randomer = None):
         """ Performs data augmentation on a classification example.
 
         Similar to augment(tokens, labels) but works for sentences
@@ -236,7 +236,7 @@ class Augmenter(object):
             for op in random.choices(ops, k=N):
                 tokens, labels = self.augment(tokens, labels, op=op)
         else:
-            tokens, labels = self.augment(tokens, labels, op=op, typing_error_rate=typing_error_rate)
+            tokens, labels = self.augment(tokens, labels, op=op, typing_error_rate=typing_error_rate, randomer=randomer)
         results = ' '.join(tokens)
         return results
 

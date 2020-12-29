@@ -30,6 +30,8 @@ if __name__=="__main__":
     parser.add_argument("--balance", dest="balance", action="store_true")
     parser.add_argument("--size", type=int, default=None)
     parser.add_argument("--test_typing_error", type=float, default=0.0)
+    parser.add_argument("--seed", type=int, default=10)
+    parser.add_argument("--train_typing_error", type=float, default=0.0)
 
     hp = parser.parse_args()
 
@@ -37,8 +39,8 @@ if __name__=="__main__":
     task = hp.task
 
     # create the tag of the run
-    run_tag = '%s_lm=%s_da=%s_dk=%s_su=%s_error=%s_size=%s_id=%d' % (task, hp.lm, hp.da,
-            hp.dk, hp.summarize, str(hp.test_typing_error), str(hp.size), hp.run_id)
+    run_tag = '%s_lm=%s_da=%s_dk=%s_su=%s_testerror=%s_trainerror=%s_seed=%s_size=%s_id=%d' % (task, hp.lm, hp.da,
+            hp.dk, hp.summarize, str(hp.test_typing_error), str(hp.train_typing_error), str(hp.seed), str(hp.size), hp.run_id)
     run_tag = run_tag.replace('/', '_')
 
     # load task configuration
@@ -75,13 +77,13 @@ if __name__=="__main__":
                                    lm=hp.lm,
                                    max_len=hp.max_len,
                                    size=hp.size,
-                                   balance=hp.balance)
+                                   balance=hp.balance,
+                                   typing_error = hp.train_typing_error)
     valid_dataset = DittoDataset(validset, vocab, task, lm=hp.lm)
     test_dataset = DittoDataset(testset, vocab, task, lm=hp.lm)
 
     if hp.test_typing_error > 0 and hp.test_typing_error <= 1:
-        test_dataset = DittoDataset(testset, vocab, task, lm=hp.lm, typing_error = hp.test_typing_error)
-
+        test_dataset = DittoDataset(testset, vocab, task, lm=hp.lm, typing_error = hp.test_typing_error, seed = hp.seed)
 
     if hp.da is None:
         from snippext.baseline import initialize_and_train
@@ -98,7 +100,8 @@ if __name__=="__main__":
                                       max_len=hp.max_len,
                                       augment_op=hp.da,
                                       size=hp.size,
-                                      balance=hp.balance)
+                                      balance=hp.balance,
+                                      typing_error = hp.train_typing_error)
         initialize_and_train(config,
                              train_dataset,
                              augment_dataset,
