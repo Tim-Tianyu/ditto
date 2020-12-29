@@ -80,7 +80,7 @@ class TypingMesser(object):
     
     def substitution(self, word):
         idx = random.choice(range(len(word)-1)) + 1
-        if word[idx].isalpha():
+        if word[idx].lower() in KBMatrix:
             c = KBMatrix[word[idx].lower()].pickOne()
             return word[:idx] + c + word[idx+1:]
         elif word[idx].isdigit():

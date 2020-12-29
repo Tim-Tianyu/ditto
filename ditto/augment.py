@@ -1,7 +1,7 @@
 import json
 import random
 import numpy as np
-from typingerror import TypingMesser
+from .typingerror import TypingMesser
 
 class Augmenter(object):
     """Data augmentation operator.
