@@ -13,7 +13,8 @@ class DittoDataset(SnippextDataset):
                  size=None,
                  augment_op=None,
                  balance=False,
-                 typing_error = 0.0):
+                 typing_error = 0.0,
+                 seed = None):
         self.tokenizer = get_tokenizer(lm=lm)
 
         # tokens and tags
@@ -42,6 +43,7 @@ class DittoDataset(SnippextDataset):
         # augmentation op
         self.augment_op = augment_op
         self.typing_error = typing_error
+        self.randomer = random.Random(seed)
         if augment_op == 't5':
             self.load_t5_examples(source)
         elif augment_op != None or typing_error > 0:
@@ -128,7 +130,7 @@ class DittoDataset(SnippextDataset):
             words = self.augmenter.augment_sent(words, self.augment_op)
         
         if self.typing_error > 0:
-            words = self.augmenter.augment_sent(words, "type_error", typing_error_rate=self.typing_error)
+            words = self.augmenter.augment_sent(words, "type_error", typing_error_rate=self.typing_error, randomer = self.randomer)
 
         if ' [SEP] ' in words:
             sents = words.split(' [SEP] ')
