@@ -53,7 +53,7 @@ lms = ['roberta', 'roberta']
 # xlnet
 # roberta""".split('\n')
 
-for dataset, lm in zip(datasets, ops, lms):
+for dataset, lm in zip(datasets, lms):
     if dataset in special_datasets:
         batch_size, epochs = special_datasets[dataset]
     else:
@@ -75,5 +75,5 @@ for dataset, lm in zip(datasets, ops, lms):
                 --seed %d""" % (dataset, batch_size, lm, epochs, run_id, probability, run_id)
             if 'Company' in dataset:
                 cmd += ' --summarize'
-                print(cmd)
-                os.system(cmd)
+            print(cmd)
+            # os.system(cmd)
