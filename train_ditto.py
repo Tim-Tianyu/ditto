@@ -30,7 +30,7 @@ if __name__=="__main__":
     parser.add_argument("--balance", dest="balance", action="store_true")
     parser.add_argument("--size", type=int, default=None)
     parser.add_argument("--test_typing_error", type=float, default=0.0)
-    parser.add_argument("--seed", type=int, default=10)
+    parser.add_argument("--seed", type=int, default=None)
     parser.add_argument("--train_typing_error", type=float, default=0.0)
 
     hp = parser.parse_args()
@@ -84,6 +84,7 @@ if __name__=="__main__":
 
     if hp.test_typing_error > 0 and hp.test_typing_error <= 1:
         test_dataset = DittoDataset(testset, vocab, task, lm=hp.lm, typing_error = hp.test_typing_error, seed = hp.seed)
+        valid_dataset = DittoDataset(validset, vocab, task, lm=hp.lm, typing_error = hp.test_typing_error, seed = hp.seed)
 
     if hp.da is None:
         from snippext.baseline import initialize_and_train
