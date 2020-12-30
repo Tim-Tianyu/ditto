@@ -1,23 +1,19 @@
 import os
 import time
 
-# datasets = """Dirty/DBLP-ACM
-# Dirty/DBLP-GoogleScholar
-# Dirty/iTunes-Amazon
-# Dirty/Walmart-Amazon
-# Structured/Amazon-Google
-# Structured/Beer
-# Structured/DBLP-ACM
-# Structured/DBLP-GoogleScholar
-# Structured/Fodors-Zagats
-# Structured/iTunes-Amazon
-# Structured/Walmart-Amazon
-# Textual/Abt-Buy
-# Textual/Company""".split('\n')
-
-datasets = """Structured/Beer
+datasets = """Dirty/DBLP-ACM
+Dirty/DBLP-GoogleScholar
+Dirty/iTunes-Amazon
 Dirty/Walmart-Amazon
-""".split('\n')
+Structured/Amazon-Google
+Structured/Beer
+Structured/DBLP-ACM
+Structured/DBLP-GoogleScholar
+Structured/Fodors-Zagats
+Structured/iTunes-Amazon
+Structured/Walmart-Amazon
+Textual/Abt-Buy
+Textual/Company""".split('\n')
 
 special_datasets = {
     'Structured/Beer': (32, 40),
@@ -41,9 +37,8 @@ special_datasets = {
 # swap
 # del""".split('\n')
 
-lms = ['roberta', 'roberta']
-# lms = ['roberta', 'roberta', 'roberta', 'roberta', 'roberta', 'roberta',
-#        'roberta', 'roberta', 'roberta', 'roberta', 'roberta', 'roberta', 'bert']
+lms = ['roberta', 'roberta', 'roberta', 'roberta', 'roberta', 'roberta',
+       'roberta', 'roberta', 'roberta', 'roberta', 'roberta', 'roberta', 'bert']
 
 # lms = ['xlnet', 'roberta', 'roberta', 'roberta', 'xlnet', 'bert',
 #        'bert', 'xlnet', 'roberta', 'bert', 'roberta', 'roberta', 'bert']
@@ -59,7 +54,7 @@ for dataset, lm in zip(datasets, lms):
     else:
         batch_size, epochs = 32, 15
     
-    for probability in [0.0, 0.2, 0.4, 0.6]:
+    for probability in [0.0, 0.1, 0.2, 0.4, 0.6]:
         for run_id in range(5):
             cmd = """CUDA_VISIBLE_DEVICES=0 python train_ditto.py \
                 --task %s \
