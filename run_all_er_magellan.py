@@ -61,7 +61,7 @@ for dataset, lm in zip(datasets, lms):
     
     for probability in [0.0, 0.2, 0.4, 0.6]:
         for run_id in range(5):
-            cmd = """CUDA_VISIBLE_DEVICES=3 python train_ditto.py \
+            cmd = """CUDA_VISIBLE_DEVICES=0 python train_ditto.py \
                 --task %s \
                 --logdir results_ditto/ \
                 --finetuning \

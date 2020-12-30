@@ -1,2 +1,0 @@
-/var/spool/slurmd/job03313/slurm_script: line 2:  8822 Killed                  CUDA_VISIBLE_DEVICES=0 python train_ditto.py --task Structured/Beer --batch_size 64 --max_len 64 --lr 3e-5 --n_epochs 40 --finetuning --lm distilbert --fp16 --da del --dk product --summarize --save_model
-slurmstepd-gpunode24: error: Detected 1 oom-kill event(s) in step 3313.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
