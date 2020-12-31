@@ -16,11 +16,11 @@ Textual/Abt-Buy
 Textual/Company""".split('\n')
 
 special_datasets = {
-    'Structured/Beer': (32, 40),
-    'Structured/iTunes-Amazon': (32, 40),
-    'Structured/Fodors-Zagats': (32, 40),
-    'Dirty/iTunes-Amazon': (32, 40),
-    'Textual/Company': (32, 3)
+    'Structured/Beer': (16, 40),
+    'Structured/iTunes-Amazon': (16, 40),
+    'Structured/Fodors-Zagats': (16, 40),
+    'Dirty/iTunes-Amazon': (16, 40),
+    'Textual/Company': (16, 3)
 }
 
 # ops = """swap
@@ -52,7 +52,7 @@ for dataset, lm in zip(datasets, lms):
     if dataset in special_datasets:
         batch_size, epochs = special_datasets[dataset]
     else:
-        batch_size, epochs = 32, 15
+        batch_size, epochs = 16, 15
     
     for probability in [0.0, 0.1, 0.2, 0.4, 0.6]:
         for run_id in range(5):
@@ -66,7 +66,7 @@ for dataset, lm in zip(datasets, lms):
                 --lm %s \
                 --n_epochs %d \
                 --run_id %d \
-                --test_typing_error %d \
+                --test_typing_error %f \
                 --seed %d""" % (dataset, batch_size, lm, epochs, run_id, probability, run_id)
             if 'Company' in dataset:
                 cmd += ' --summarize'
