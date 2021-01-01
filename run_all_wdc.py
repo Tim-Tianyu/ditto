@@ -16,7 +16,7 @@ for d in datasets:
                     --logdir results_wdc/ \
                     --fp16 \
                     --finetuning \
-                    --batch_size 64 \
+                    --batch_size 32 \
                     --lr 3e-5 \
                     --n_epochs 10 \
                     --run_id %d \
